@@ -19,15 +19,11 @@ import ca.tetervak.dicegame.R
 @Composable
 fun TotalRow(@StringRes labelRes: Int, total: Int, modifier: Modifier = Modifier) {
     Row(
-        modifier = modifier.fillMaxWidth(0.7f),
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         Text(
             text = stringResource(labelRes),
-            fontSize = 24.sp,
-            modifier = Modifier
-                .fillMaxWidth(0.7f)
-                .wrapContentWidth(align = Alignment.End)
+            fontSize = 24.sp
         )
         Text(
             text = total.toString(), fontSize = 24.sp, color = colorResource(R.color.green_500)
