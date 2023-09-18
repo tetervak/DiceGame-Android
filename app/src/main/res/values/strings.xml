@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Dice Game</string>
+
+    <!-- Roller Screen -->
+    <string name="roll_button_label">Roll %d Dice</string>
+    <string name="roll_dice">Roll Dice</string>
+    <string name="reset_button_label">Reset</string>
+    <string name="roll_total_label">Roll Total:</string>
+    <string name="dice_image">dice image</string>
+
+    <!-- Navigation -->
+    <string name="back_button">Back</string>
+    <string name="nav_roller_title">Dice Roller</string>
+
+</resources>
