@@ -10,5 +10,5 @@ import dagger.hilt.components.SingletonComponent
 object ServiceModule {
 
     @Provides
-    fun provideRollerService(): RollerService = RollerServiceImpl()
+    fun rollerService(): RollerService = RollerServiceImpl()
 }

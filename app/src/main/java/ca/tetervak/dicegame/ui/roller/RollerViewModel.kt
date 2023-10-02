@@ -23,13 +23,13 @@ class RollerViewModel @Inject constructor(
         mutableStateOf(RollerUiState.NotRolled)
     val rollerUiState: State<RollerUiState> = _rollerUiState
 
-    val numberOfDice: StateFlow<Int> = MutableStateFlow(3)
+    val numberOfDice: StateFlow<Int> = MutableStateFlow(5)
 
     fun onRoll() = viewModelScope.launch {
         val rollData: RollData = getRollDataUseCase(numberOfDice.value)
 
-        _rollerUiState.value = RollerUiState.Rolled(
-            rollData = rollData, date = Date()
+        _rollerUiState.value =
+            RollerUiState.Rolled(rollData = rollData, date = Date()
         )
     }
 
