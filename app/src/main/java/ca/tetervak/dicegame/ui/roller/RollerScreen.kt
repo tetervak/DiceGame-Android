@@ -58,20 +58,3 @@ fun RollerScreen(
         }
     }
 }
-
-//@Preview
-//@Composable
-//fun RollerScreenPreviewNotRolled(){
-//    val getRollDataUseCase = GetRollDataUseCase(RollerServiceImpl())
-//    val viewModel = RollerViewModel(getRollDataUseCase)
-//    RollerScreen(viewModel)
-//}
-//
-//@Preview
-//@Composable
-//fun RollerScreenPreviewRolled(){
-//    val getRollDataUseCase = GetRollDataUseCase(RollerServiceImpl())
-//    val viewModel = RollerViewModel(getRollDataUseCase)
-//    viewModel.onRoll()
-//    RollerScreen(viewModel)
-//}
