@@ -11,4 +11,6 @@ sealed interface RollerUiState {
     ) : RollerUiState
 
     object NotRolled: RollerUiState
+    object Loading: RollerUiState
+    object Error: RollerUiState
 }

@@ -12,4 +12,11 @@
     <string name="back_button">Back</string>
     <string name="nav_roller_title">Dice Roller</string>
 
+    <!-- Loading and Error -->
+    <string name="loading_error">Loading Error</string>
+    <string name="cannot_load_data">Cannot load data</string>
+    <string name="loading_data">Loading Data</string>
+    <string name="fake_delay">Fake delay, 2s</string>
+    <string name="retry_button_label">Retry</string>
+
 </resources>

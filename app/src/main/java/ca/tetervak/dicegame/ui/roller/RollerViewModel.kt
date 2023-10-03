@@ -8,9 +8,11 @@ import androidx.lifecycle.viewModelScope
 import ca.tetervak.dicegame.domain.GetRollDataUseCase
 import ca.tetervak.dicegame.domain.RollData
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import java.io.IOException
 import java.util.Date
 import javax.inject.Inject
 
@@ -19,22 +21,32 @@ class RollerViewModel @Inject constructor(
     private val getRollDataUseCase: GetRollDataUseCase
 ) : ViewModel() {
 
-    private val _rollerUiState: MutableState<RollerUiState> =
+    private val _uiState: MutableState<RollerUiState> =
         mutableStateOf(RollerUiState.NotRolled)
-    val rollerUiState: State<RollerUiState> = _rollerUiState
+    val uiState: State<RollerUiState> = _uiState
 
-    val numberOfDice: StateFlow<Int> = MutableStateFlow(5)
+    val numberOfDice: StateFlow<Int> = MutableStateFlow(2)
 
     fun onRoll() = viewModelScope.launch {
-        val rollData: RollData = getRollDataUseCase(numberOfDice.value)
 
-        _rollerUiState.value =
-            RollerUiState.Rolled(rollData = rollData, date = Date()
-        )
+        _uiState.value = RollerUiState.Loading
+
+        //fake loading delay, 2 seconds
+        delay(2000)
+
+        try{
+            val rollData: RollData = getRollDataUseCase(numberOfDice.value)
+            _uiState.value =
+                RollerUiState.Rolled(rollData = rollData, date = Date())
+        } catch (e: IOException){
+            _uiState.value = RollerUiState.Error
+            e.printStackTrace()
+        }
+
     }
 
     fun onReset() = viewModelScope.launch {
-        _rollerUiState.value = RollerUiState.NotRolled
+        _uiState.value = RollerUiState.NotRolled
     }
 
 }

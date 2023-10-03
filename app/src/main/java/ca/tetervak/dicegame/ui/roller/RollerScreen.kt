@@ -11,10 +11,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.tooling.preview.Preview
 import ca.tetervak.dicegame.R
-import ca.tetervak.dicegame.data.service.RollerServiceImpl
-import ca.tetervak.dicegame.domain.GetRollDataUseCase
 import ca.tetervak.dicegame.ui.common.RollerTopAppBar
 
 
@@ -25,7 +22,7 @@ fun RollerScreen(
     modifier: Modifier = Modifier
 ) {
 
-    val state: State<RollerUiState> = viewModel.rollerUiState
+    val state: State<RollerUiState> = viewModel.uiState
     val rollerUiState: RollerUiState = state.value
     val numberOfDice: Int by viewModel.numberOfDice.collectAsState()
 
@@ -53,6 +50,10 @@ fun RollerScreen(
                 numberOfDice = numberOfDice,
                 onRoll = viewModel::onRoll,
                 modifier = modifier.padding(innerPadding)
+            )
+            is RollerUiState.Loading -> LoadingBody()
+            is RollerUiState.Error -> ErrorBody(
+                onRetry = viewModel::onRoll
             )
         }
     }
