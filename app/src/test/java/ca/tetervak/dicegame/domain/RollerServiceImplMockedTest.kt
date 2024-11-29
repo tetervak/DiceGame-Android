@@ -1,6 +1,6 @@
 package ca.tetervak.dicegame.domain
 
-import ca.tetervak.dicegame.data.RollerService
+import ca.tetervak.dicegame.data.impl.RollerServiceImpl
 import org.junit.After
 import org.junit.Assert.*
 import org.junit.Before
@@ -10,7 +10,7 @@ import org.mockito.kotlin.doAnswer
 import org.mockito.kotlin.mock
 
 
-class RollerServiceMockedTest{
+class RollerServiceImplMockedTest{
 
     // Mocking the Random to produce 1,2,3,4,5,6,1,2,3,4,5,6,1,2, etc.
     private var count = 0
@@ -19,7 +19,7 @@ class RollerServiceMockedTest{
             1 + (count++) % 6
         }
     }
-    private val rollerService: RollerService = RollerService(mockRandom)
+    private val rollerService: RollerServiceImpl = RollerServiceImpl(mockRandom)
 
     @Before
     fun setUp() {

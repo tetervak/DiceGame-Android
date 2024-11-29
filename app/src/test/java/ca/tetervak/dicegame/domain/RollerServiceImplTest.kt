@@ -1,6 +1,6 @@
 package ca.tetervak.dicegame.domain
 
-import ca.tetervak.dicegame.data.RollerService
+import ca.tetervak.dicegame.data.impl.RollerServiceImpl
 import org.junit.After
 import org.junit.Assert.*
 import org.junit.Before
@@ -8,11 +8,11 @@ import org.junit.Test
 import java.lang.IllegalArgumentException
 import kotlin.random.Random
 
-class RollerServiceTest {
+class RollerServiceImplTest {
 
     // specifying the seed makes the "random" sequence always the same
     private val random: Random = Random(seed = 10)
-    private val rollerService: RollerService = RollerService(random)
+    private val rollerService: RollerServiceImpl = RollerServiceImpl(random)
 
     @Before
     fun setUp() {
