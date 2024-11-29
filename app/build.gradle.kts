@@ -61,9 +61,11 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     testImplementation(libs.junit)
-    
+
     implementation(libs.hilt.android)
     kapt(libs.hilt.android.compiler)
+
+    implementation(libs.androidx.datastore.preferences)
 
     testImplementation(libs.mockito.kotlin)
     androidTestImplementation(libs.androidx.junit)

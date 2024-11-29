@@ -9,11 +9,10 @@ import dagger.hilt.components.SingletonComponent
 
 @Module
 @InstallIn(SingletonComponent::class)
-abstract class DataModule {
+abstract class RollerServiceModule {
 
     @Binds
     abstract fun bindRollerService(
         rollerServiceImpl: RollerServiceImpl
     ): RollerService
-
 }
